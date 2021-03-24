@@ -1,20 +1,6 @@
 // TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generator = response => {
-    const {
-        gituser,
-        title,
-        toc,
-        description,
-        installation,
-        usage,
-        license,
-        tests,
-        constributors,
-        email
-    } = response
-}
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -82,7 +68,7 @@ const questions = [
     ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
+function writeToFile(data) {
     let markText = `
     #${data.title}
     ${data.license}
@@ -111,10 +97,10 @@ function writeToFile(fileName, data) {
     ${data.contributors}
 
     ##Questions?
-    Please email ${email} (link to email)[mailto:${email}] with any questions.
-    (link to GitHub user)[https://github.com/${gituser}]
+    Please email ${data.email} (link to email)[mailto:${data.email}] with any questions.
+    (link to GitHub user)[https://github.com/${data.gituser}]
     `
-
+return markText
 }
 
 // TODO: Create a function to initialize app
