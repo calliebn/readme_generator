@@ -106,12 +106,11 @@ function tocRender(options) {
 
 // TODO: Create a function to write README file
 function writeToFile(data) {
-    let markText = `
-    #${data.title}
-    ${data.license}
+    let markText = `# ${data.title}
+${data.license}
 
-    ## Table of Contents
-    ${tocRender(data.toc)}
+## Table of Contents
+${tocRender(data.toc)}
 
     ## Description
     ${data.description}
