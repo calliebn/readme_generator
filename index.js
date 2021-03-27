@@ -45,7 +45,7 @@ const questions = [
         type: 'list',
         message: 'What license should the project use?',
         name: 'license',
-        choices: ['MIT', 'GPL', 'Apache', 'BSD', 'None']
+        choices: ['MIT', 'GPL v2', 'GPL v3', 'Apache', 'None']
     },
 
     {
@@ -75,7 +75,7 @@ function tocRender(options) {
                 tocLinks.push(`\n * [Description](#description)`)
                 break;
 
-            case 'Installation':
+                case 'Installation':
                 tocLinks.push(`\n * [Installation](#installation)`)
                 break;
 
@@ -104,38 +104,66 @@ function tocRender(options) {
     return tocLinks.join('')
 }
 
+function renderLicense(license) {
+    let renderBadge = ''
+        switch (license) {
+            case 'MIT':
+            renderBadge = '![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)'
+            break;
+
+            case 'GPL v2':
+            renderBadge = '![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)'
+            break;
+
+            case 'GPL v3':
+            renderBadge = '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)'
+            break;
+
+            case 'Apache':
+            renderBadge = '![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)'
+            break;
+
+            case 'None':
+            renderBadge = ''
+            break;
+
+        }
+    return renderBadge
+}
+
 // TODO: Create a function to write README file
 function writeToFile(data) {
-    let markText = `# ${data.title}
-${data.license}
+    let badge = renderLicense(data.license)
+let markText = `# ${data.title}
+${badge}
 
 ## Table of Contents
 ${tocRender(data.toc)}
 
-    ## Description
-    ${data.description}
+## Description
+${data.description}
 
-    ## Installation
-    To install the required dependencies, run the following command:
-    ${data.installation}
+## Installation
+To install the required dependencies, run the following command:
+${data.installation}
 
-    ## Usage
-    ${data.usage}
+## Usage
+${data.usage}
 
-    ## License
-    The project is licensed under the ${data.license} license.
+## License
+The project is licensed under the ${data.license} license.
 
-    ## Tests
-    Please run the following command to test:
-    ${data.tests}
+## Tests
+Please run the following command to test:
+${data.tests}
 
-    ## Contributors
-    ${data.contributors}
+## Contributors
+${data.contributors}
 
-    ## Questions?
-    Please email ${data.email} with any questions.
-    Visit me on GitHub at https://github.com/${data.gituser}
-    `
+## Questions?
+Please email ${data.email} with any questions.
+Visit me on GitHub at https://github.com/${data.gituser}
+`
     return markText
 }
 
