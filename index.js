@@ -20,7 +20,7 @@ const questions = [
         type: 'checkbox',
         message: 'What should be in the Table of Contents?',
         name: 'toc',
-        choices: ['Description', 'Installation', 'Usage', 'License', 'Tests', 'Contributors', 'Questions']
+        choices: ['Description', 'Installation', 'Usage', 'License', 'Tests', 'Links', 'Contributors', 'Questions']
     },
 
     {
@@ -91,6 +91,10 @@ function tocRender(options) {
                 tocLinks.push(`\n * [Tests](#tests)`)
                 break;
 
+                case 'Links':
+                tocLinks.push(`\n * [Links](#links)`)
+                break;
+
                 case 'Contributors':
                 tocLinks.push(`\n * [Contributors](#contributors)`)
                 break;
@@ -156,6 +160,9 @@ The project is licensed under the ${data.license} license.
 ## Tests
 Please run the following command to test:
 ${data.tests}
+
+### Links
+${data.links}
 
 ## Contributors
 ${data.contributors}
