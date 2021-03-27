@@ -56,6 +56,12 @@ const questions = [
 
     {
         type: 'input',
+        message: 'What is the deployable link?',
+        name: 'links'
+    },
+
+    {
+        type: 'input',
         message: 'Who are the contributors? (Please list the contributors GitHub usernames separated by commas)',
         name: 'contributors'
     },
