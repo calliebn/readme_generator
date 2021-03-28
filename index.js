@@ -167,7 +167,7 @@ The project is licensed under the ${data.license} license.
 Please run the following command to test:
 ${data.tests}
 
-### Links
+## Links
 ${data.links}
 
 ## Contributors
