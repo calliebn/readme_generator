@@ -20,7 +20,7 @@ To install the required dependencies, run the following command:
 init
 
 ## Usage
-The user will be guided through a series f prompted questions. The answers to the questions will populate the fields in the ReadMe file
+The user will be guided through a series of prompted questions. The answers to the questions will populate the fields in the ReadMe file
 
 ## License
 The project is licensed under the MIT license.
